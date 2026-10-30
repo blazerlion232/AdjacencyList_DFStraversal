@@ -22,7 +22,17 @@ public class W4D1_GraphDFS {
     }
 
     private void dfsRecursive(String current, Set<String> visited) {
-        // TODO: Implement the dfs recursive logic.
+
+        if(visited.contains(current) != true){
+            System.out.println(current + ", ");
+            visited.add(current);
+        }
+        for (String neighbour : adjacencyList.getOrDefault(current, new ArrayList<>())){
+            if (!visited.contains(neighbour)){
+                dfsRecursive(neighbour, visited);
+            }
+        }
+        
     }
 
     // Helper method to display graph structure
